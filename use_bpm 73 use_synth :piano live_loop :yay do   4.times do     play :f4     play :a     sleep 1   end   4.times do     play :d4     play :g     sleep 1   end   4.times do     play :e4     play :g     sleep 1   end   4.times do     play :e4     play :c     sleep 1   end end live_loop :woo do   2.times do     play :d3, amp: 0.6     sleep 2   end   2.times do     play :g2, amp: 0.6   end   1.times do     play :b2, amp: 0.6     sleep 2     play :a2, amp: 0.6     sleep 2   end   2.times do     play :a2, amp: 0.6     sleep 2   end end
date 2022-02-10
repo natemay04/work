@@ -1,0 +1,45 @@
+use_bpm 73
+use_synth :piano
+live_loop :yay do
+  4.times do
+    play :f4
+    play :a
+    sleep 1
+  end
+  4.times do
+    play :d4
+    play :g
+    sleep 1
+  end
+  4.times do
+    play :e4
+    play :g
+    sleep 1
+  end
+  4.times do
+    play :e4
+    play :c
+    sleep 1
+  end
+end
+live_loop :woo do
+  2.times do
+    play :d3, amp: 0.6
+    sleep 2
+  end
+  2.times do
+    play :g2, amp: 0.6
+  end
+  1.times do
+    play :b2, amp: 0.6
+    sleep 2
+    play :a2, amp: 0.6
+    sleep 2
+  end
+  2.times do
+    play :a2, amp: 0.6
+    sleep 2
+  end
+end
+
+
