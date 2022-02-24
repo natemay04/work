@@ -1,6 +1,10 @@
-use_bpm 73
-use_synth :piano
-live_loop :yay do
+use_bpm 114
+
+
+
+define :piano do
+  use_synth :piano
+  use_synth_defaults amp: 1.5
   4.times do
     play :f4
     play :a
@@ -22,24 +26,24 @@ live_loop :yay do
     sleep 1
   end
 end
+
+live_loop :define do
+  piano
+end
+
+
 live_loop :woo do
-  2.times do
-    play :d3, amp: 0.6
-    sleep 2
-  end
-  2.times do
-    play :g2, amp: 0.6
-  end
-  1.times do
-    play :b2, amp: 0.6
-    sleep 2
-    play :a2, amp: 0.6
-    sleep 2
-  end
-  2.times do
-    play :a2, amp: 0.6
-    sleep 2
+  with_fx :compressor do
+    sample :bd_808, amp: 1199
+    sleep 4
   end
 end
+
+sleep 16
+live_loop :yolo do
+  sample :bd_sone, amp: 2
+  sleep 2
+end
+
 
 
