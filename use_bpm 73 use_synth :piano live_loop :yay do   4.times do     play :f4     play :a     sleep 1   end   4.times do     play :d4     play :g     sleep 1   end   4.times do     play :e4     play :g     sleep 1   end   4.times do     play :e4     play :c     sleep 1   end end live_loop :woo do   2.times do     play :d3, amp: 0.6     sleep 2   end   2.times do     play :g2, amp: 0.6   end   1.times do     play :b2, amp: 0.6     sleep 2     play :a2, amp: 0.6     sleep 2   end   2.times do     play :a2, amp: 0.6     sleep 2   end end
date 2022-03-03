@@ -1,10 +1,10 @@
-use_bpm 114
+itslit = "C:/Users/nathan_mayeda/Downloads/its_lit.wav"
 
-
+use_bpm 120
 
 define :piano do
   use_synth :piano
-  use_synth_defaults amp: 1.5
+  use_synth_defaults amp: 2
   4.times do
     play :f4
     play :a
@@ -31,18 +31,44 @@ live_loop :define do
   piano
 end
 
-
 live_loop :woo do
-  with_fx :compressor do
-    sample :bd_808, amp: 1199
-    sleep 4
+  n = 300
+  1.times do
+    
+    1.times do
+      sample :bd_808, amp: n
+      sleep 4
+    end
+    #stop
+    n = 150
+    5.times do
+      sample :bd_808, amp: n + 135
+      sleep 4
+    end
+    #stop
+    4.times do
+      sample :bd_808, amp: 825
+      sleep 4
+    end
   end
+  stop
 end
 
 sleep 16
 live_loop :yolo do
-  sample :bd_sone, amp: 2
-  sleep 2
+  with_fx :autotuner do
+    sample :bd_sone, amp: 2
+    sleep 2
+  end
+end
+
+sleep 8
+live_loop :scott do
+  1.times do
+    sample itslit, amp: 2
+    sleep 1
+  end
+  stop
 end
 
 
