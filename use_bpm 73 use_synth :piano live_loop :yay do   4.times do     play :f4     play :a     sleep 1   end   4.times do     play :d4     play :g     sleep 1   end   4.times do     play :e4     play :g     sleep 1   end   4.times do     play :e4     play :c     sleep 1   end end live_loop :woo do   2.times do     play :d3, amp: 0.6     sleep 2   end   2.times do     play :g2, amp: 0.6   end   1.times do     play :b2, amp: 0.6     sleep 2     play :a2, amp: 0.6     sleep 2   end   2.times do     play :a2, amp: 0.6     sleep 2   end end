@@ -1,4 +1,8 @@
-itslit = "C:/Users/nathan_mayeda/Downloads/its_lit.wav"
+
+
+
+
+turbo = "C:/Users/nathan_mayeda/Downloads/turbo.wav"
 
 use_bpm 120
 
@@ -7,10 +11,12 @@ define :piano do
   use_synth_defaults amp: 2
   4.times do
     play :f4
+    
     play :a
     sleep 1
   end
   4.times do
+    
     play :d4
     play :g
     sleep 1
@@ -46,7 +52,7 @@ live_loop :woo do
       sleep 4
     end
     #stop
-    4.times do
+    8.times do
       sample :bd_808, amp: 825
       sleep 4
     end
@@ -63,13 +69,11 @@ live_loop :yolo do
 end
 
 sleep 8
-live_loop :scott do
+live_loop :runthatbac do
   1.times do
-    sample itslit, amp: 2
+    sample turbo, amp: 2
     sleep 1
   end
   stop
 end
-
-
 
