@@ -1,34 +1,29 @@
-
-
-
-
 turbo = "C:/Users/nathan_mayeda/Downloads/turbo.wav"
 
 use_bpm 120
+
+partone = ["f4", "a"]
+parttwo = ["d4", "g"]
+partthree = ["e4", "g"]
+partfour = ["e4", "c"]
 
 define :piano do
   use_synth :piano
   use_synth_defaults amp: 2
   4.times do
-    play :f4
-    
-    play :a
+    play (partone)
     sleep 1
   end
   4.times do
-    
-    play :d4
-    play :g
+    play (parttwo)
     sleep 1
   end
   4.times do
-    play :e4
-    play :g
+    play (partthree)
     sleep 1
   end
   4.times do
-    play :e4
-    play :c
+    play (partfour)
     sleep 1
   end
 end
@@ -52,7 +47,7 @@ live_loop :woo do
       sleep 4
     end
     #stop
-    8.times do
+    1000.times do
       sample :bd_808, amp: 825
       sleep 4
     end
@@ -77,3 +72,8 @@ live_loop :runthatbac do
   stop
 end
 
+
+
+
+
+   
