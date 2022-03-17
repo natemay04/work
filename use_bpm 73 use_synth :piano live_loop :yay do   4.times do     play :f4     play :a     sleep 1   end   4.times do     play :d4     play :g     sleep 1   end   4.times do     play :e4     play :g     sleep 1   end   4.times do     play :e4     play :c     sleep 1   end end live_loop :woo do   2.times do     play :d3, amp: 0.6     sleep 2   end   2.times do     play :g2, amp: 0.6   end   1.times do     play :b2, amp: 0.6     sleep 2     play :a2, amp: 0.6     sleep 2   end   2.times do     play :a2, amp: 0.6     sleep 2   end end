@@ -2,10 +2,14 @@ turbo = "C:/Users/nathan_mayeda/Downloads/turbo.wav"
 
 use_bpm 120
 
+define :notes do |n1, n2|
+  play n1
+  play n2
+  sleep 1
+end
+
 partone = ["f4", "a"]
 parttwo = ["d4", "g"]
-partthree = ["e4", "g"]
-partfour = ["e4", "c"]
 
 define :piano do
   use_synth :piano
@@ -19,12 +23,10 @@ define :piano do
     sleep 1
   end
   4.times do
-    play (partthree)
-    sleep 1
+    notes :e4, :g
   end
   4.times do
-    play (partfour)
-    sleep 1
+    notes :e4, :c
   end
 end
 
@@ -71,9 +73,3 @@ live_loop :runthatbac do
   end
   stop
 end
-
-
-
-
-
-   
