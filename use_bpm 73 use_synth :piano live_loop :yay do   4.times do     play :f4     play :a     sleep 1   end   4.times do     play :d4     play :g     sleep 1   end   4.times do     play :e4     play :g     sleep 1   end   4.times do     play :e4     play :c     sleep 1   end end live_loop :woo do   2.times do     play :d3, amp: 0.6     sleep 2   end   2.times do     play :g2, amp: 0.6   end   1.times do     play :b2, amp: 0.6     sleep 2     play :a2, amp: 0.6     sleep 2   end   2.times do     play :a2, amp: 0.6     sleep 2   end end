@@ -1,26 +1,40 @@
+#intro
+
+#songone
 turbo = "C:/Users/nathan_mayeda/Downloads/turbo.wav"
 
 use_bpm 120
 
-define :notes do |n1, n2|
-  play n1
-  play n2
+define :notes do |f1, f2|
+  play f1
+  play f2
   sleep 1
 end
 
-partone = ["f4", "a"]
-parttwo = ["d4", "g"]
+m = 1
+
+use_synth :piano
+40.times do
+  play (m)
+  sleep 0.25
+  m = m +1
+end
+4.times do
+  play (m)
+  sleep 1
+  m = m+1
+end
+
+
 
 define :piano do
   use_synth :piano
   use_synth_defaults amp: 2
   4.times do
-    play (partone)
-    sleep 1
+    notes :f4, :a
   end
   4.times do
-    play (parttwo)
-    sleep 1
+    notes :d4, :g
   end
   4.times do
     notes :e4, :g
@@ -35,27 +49,10 @@ live_loop :define do
 end
 
 live_loop :woo do
-  n = 300
-  1.times do
-    
-    1.times do
-      sample :bd_808, amp: n
-      sleep 4
-    end
-    #stop
-    n = 150
-    5.times do
-      sample :bd_808, amp: n + 135
-      sleep 4
-    end
-    #stop
-    1000.times do
-      sample :bd_808, amp: 825
-      sleep 4
-    end
-  end
-  stop
+  sample :bd_808, amp: 825
+  sleep 4
 end
+
 
 sleep 16
 live_loop :yolo do
@@ -73,3 +70,5 @@ live_loop :runthatbac do
   end
   stop
 end
+#transition
+#songtwo
