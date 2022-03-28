@@ -25,16 +25,21 @@ end
   m = m+1
 end
 
-
+firsthalf = [:f4, :a, :d4, :g]
+i = 0
 
 define :piano do
   use_synth :piano
   use_synth_defaults amp: 2
   4.times do
-    notes :f4, :a
+    play (firsthalf[0])
+    play (firsthalf[1])
+    sleep 1
   end
   4.times do
-    notes :d4, :g
+    play (firsthalf[2])
+    play (firsthalf[3])
+    sleep 1
   end
   4.times do
     notes :e4, :g
